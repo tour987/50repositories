@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiden Search Widget</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            background-color: lightblue;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .search{
+            position: relative;
+            
+        }
+
+        .search .input {
+          background-color: #fff;
+          border: 0;
+          font-size: 24px;
+            padding: 15px;
+          height: 50px;
+          width: 50px;
+          transition: width 0.3s ease;
+        }
+        
+        
+.btn {
+  background-color: #fff;
+  background-image: url('/images/QQ截图20220930114447.png');
+  border: 0;
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  transition: transform 0.3s ease;
+}
+
+.search.active .input{
+    width: 200px;
+}
+
+
+.search.active .btn {
+  transform: translateX(198px);
+}
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="search">
+        <input type="text" class="input" placeholder="Search...">
+        <button class="btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
+
+    <script type = "module">
+        const search = document.querySelector('.search');
+        const btn = document.querySelector('.btn');
+        const input = document.querySelector('.input');
+
+        btn.addEventListener('click', ()=>{
+            search.classList.toggle('active');
+            input.focus();
+        })
+    </script>
+</body>
+</html>
