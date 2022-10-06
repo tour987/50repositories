@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation</title>
+
+    <style>
+
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            position:relative;
+            display: flex;
+            background-color: antiquewhite;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        .box{
+         
+            margin-left: 65px;
+            background-color: lightblue;
+            text-align: center;
+            padding-top: 70px;
+            margin-bottom: 10px;
+            width: 250px;
+            height: 200px;
+            border-radius: 50px;
+            transform: translateX(400%);
+            transition: transform 0.4s ease;
+        }
+
+        
+        .box:nth-of-type(even) {
+            transform: translateX(-400%);
+        }
+
+        
+        .box.show {
+             transform: translateX(0);
+        }
+
+        
+        
+        
+ 
+    </style>
+</head>
+<body >
+    <div calss = "container">
+    <h1>Scroll to see the animation</h1>
+    <div class="box"><h2>Content1</h2></div>
+    <div class="box"><h2>Content2</h2></div>
+    <div class="box"><h2>Content3</h2></div>
+    <div class="box"><h2>Content4</h2></div>
+    <div class="box"><h2>Content5</h2></div>
+    <div class="box"><h2>Content6</h2></div>
+    <div class="box"><h2>Content7</h2></div>
+    <div class="box"><h2>Content8</h2></div>
+    <div class="box"><h2>Content9</h2></div>
+    <div class="box"><h2>Content10</h2></div>
+    <div class="box"><h2>Content11</h2></div>
+    <div class="box"><h2>Content12</h2></div>
+    <div class="box"><h2>Content13</h2></div>
+    <div class="box"><h2>Content1</h2></div>
+    <div class="box"><h2>Content2</h2></div>
+    <div class="box"><h2>Content3</h2></div>
+    <div class="box"><h2>Content4</h2></div>
+    <div class="box"><h2>Content5</h2></div>
+    <div class="box"><h2>Content6</h2></div>
+    <div class="box"><h2>Content7</h2></div>
+    <div class="box"><h2>Content8</h2></div>
+    <div class="box"><h2>Content9</h2></div>
+    <div class="box"><h2>Content10</h2></div>
+    <div class="box"><h2>Content11</h2></div>
+    <div class="box"><h2>Content12</h2></div>
+    <div class="box"><h2>Content13</h2></div>
+    <div class="box"><h2>Content1</h2></div>
+    <div class="box"><h2>Content2</h2></div>
+    <div class="box"><h2>Content3</h2></div>
+    <div class="box"><h2>Content4</h2></div>
+    <div class="box"><h2>Content5</h2></div>
+    <div class="box"><h2>Content6</h2></div>
+    <div class="box"><h2>Content7</h2></div>
+    <div class="box"><h2>Content8</h2></div>
+    <div class="box"><h2>Content9</h2></div>
+    <div class="box"><h2>Content10</h2></div>
+    <div class="box"><h2>Content11</h2></div>
+    <div class="box"><h2>Content12</h2></div>
+    <div class="box"><h2>Content13</h2></div>
+   
+</div>
+
+    <script  type = "module">
+        const boxes = document.querySelectorAll(".box");
+
+        window.addEventListener('scroll', checkBoxes);
+
+        checkBoxes();
+
+    function checkBoxes() {
+        const triggerBottom = window.innerHeight / 5 * 4;
+
+        boxes.forEach(box => {
+            const boxTop = box.getBoundingClientRect().top;
+
+            if(boxTop < triggerBottom){
+                box.classList.add('show')
+            } else {
+                box.classList.remove('show')
+            }
+        })
+    }
+    </script>
+</body>
+</html>
